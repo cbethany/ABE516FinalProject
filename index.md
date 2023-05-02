@@ -2,15 +2,11 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# Project Statement
 
-[Link to another page](./another-page.html).
+I am conducting an analysis of sensor data collected during corn planting on a 12 row ExactEmerge planter. I am interested in learning the causes of variation in closing wheel performance. In general, when comparing conservation-tilled fields, closing performance increases as closing wheel average acceleration decreases. This is only to a certain point, however, since overcompaction can also lead to negative effects. Therefore, for a specific field and pressure, I will observe the influence of depth, speed, soil characteristics, draft force, and power availability on overall closing performance.
 
-Test to see if this is where I should be editing.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
-# Header 1
+# Data Acquisition
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
@@ -93,8 +89,6 @@ end
 - level 1 item
 
 ### Small image
-
-![Octocat](https://github.com/cbethany/ABE516FinalProject/blob/master/assets/images/kdeplot.png)
 
 <img src="./assets/images/kdeplot.png" alt="kdeplot">
 
