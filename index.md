@@ -96,6 +96,8 @@ end
 
 ![Octocat](https://github.com/cbethany/ABE516FinalProject/blob/master/assets/images/kdeplot.png)
 
+<img src="./assets/images/kdeplot.png" alt="kdeplot">
+
 ### Large image
 
 ![Branching](https://guides.github.com/activities/hello-world/branching.png)
