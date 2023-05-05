@@ -30,7 +30,7 @@ Here is a list of relevant non-native sensors installed for this project:
 
 **Valve stack pressure sensor for pneumatic pressure**
 
-<img src="./assets/images/ValveStack.JPG" alt="ValveStack">
+<img src="./assets/images/ValveStack.jpg" alt="ValveStack">
 
 
 
