@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<img src="./assets/images/IMG_3170.JPG" alt="tractor">
+<img src="./assets/images/IMG_3170.jpg" alt="tractor">
 
 # Project Statement
 
@@ -10,7 +10,17 @@ I am conducting an analysis of sensor data collected during corn planting on a 1
 
 # Data Acquisition
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+Our control system utilizes a MicroAutoBox connected to a high-speed CAN bus to send and receive signals that read sensor inputs and manage the electronic depth actuators, pneumatic controllers and user interface. This CAN bus also to a gateway which we use as a diagnostic port to log these signals in an ASCII text format.
+
+Here is a list of relevant non-native sensors installed for this project:
+
+**Rotary encoders for cleaning and closing wheels**
+
+<img src="./assets/images/encoders.jpg" alt="encoders">
+
+**Inertial Measurement Units (IMU) for acceleration data on row unit**
+
+<img src="./assets/images/IMU.png" alt="encoders">
 
 ## Header 2
 
