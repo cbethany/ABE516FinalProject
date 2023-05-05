@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<img src="./assets/images/IMG_3170.jpg" alt="tractor">
+<img src="./assets/images/IMG_3170.JPG" alt="tractor">
 
 # Project Statement
 
@@ -16,11 +16,11 @@ Here is a list of relevant non-native sensors installed for this project:
 
 **Rotary encoders for cleaning and closing wheels**
 
-<img src="./assets/images/encoders.jpg" alt="encoders">
+<img src="./assets/images/encoders.JPG" alt="encoders">
 
 **Inertial Measurement Units (IMU) for acceleration data on row unit**
 
-<img src="./assets/images/IMU.png" alt="encoders">
+<img src="./assets/images/IMU.PNG" alt="imu">
 
 ## Header 2
 
