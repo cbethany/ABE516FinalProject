@@ -39,6 +39,17 @@ Here is a list of relevant non-native sensors installed for this project:
 <img src="./assets/images/monitors.JPG" alt="monitors">
 
 
+All of these sensors work in conjunction to provide a clear image of planter dynamics and teach us how we can improve the planting process. 
+
+When the data is logged, it is converted to a .mat file which can be imported into python for further analysis:
+
+```python
+data = mat73.loadmat(r"C:\Users\cbethany\Desktop\Fall Seeding\Analysis\Files\FieldLogs\Spring2022_12RTDP_20220602_NReynoldson.mat")
+field_df = pd.DataFrame(data=data)
+field_df.head()
+```
+
+
 
 ## Header 2
 
