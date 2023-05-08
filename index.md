@@ -44,12 +44,45 @@ All of these sensors work in conjunction to provide a clear image of planter dyn
 When the data is logged, it is converted to a .mat file which can be imported into python for further analysis:
 
 ```python
-data = mat73.loadmat(r"C:\Users\cbethany\Desktop\Fall Seeding\Analysis\Files\FieldLogs\Spring2022_12RTDP_20220602_NReynoldson.mat")
+data = mat73.loadmat(r"C:\Users\cbethany\Desktop\Fall Seeding\Analysis\Files\FieldLogs\Spring_2023_West80_20230413.mat")
 field_df = pd.DataFrame(data=data)
 field_df.head()
 ```
+A single repetition in the data can often include multiple passes. Logging is paused near the end of passes to avoid data that is skewed by the operator influence, since at the end of the rows they will often adjust the heading slightly, slow down, or even lift the planter early. Let's consider a set of 5 repetitions which cumulatively represents about 45 minutes of planting at relative equilibrium.
 
+```python
+Rep1_df = pd.DataFrame(data = field_df.SD_12R_West80_230413112819_Rep_1.CANsignals_Downsample)
+Rep2_df = pd.DataFrame(data = field_df.SD_12R_West80_230413131744_Rep_2.CANsignals_Downsample)
+Rep3_df = pd.DataFrame(data = field_df.SD_12R_West80_230413132611_Rep_3.CANsignals_Downsample)
+Rep4_df = pd.DataFrame(data = field_df.SD_12R_West80_230413133937_Rep_4.CANsignals_Downsample)
+Rep5_df = pd.DataFrame(data = field_df.SD_12R_West80_230413135235_Rep_5.CANsignals_Downsample)
+Total_df = pd.concat([Rep1_df, Rep2_df, Rep3_df, Rep4_df, Rep5_df])
+Total_df_filtered = Total_df[['CW_01_Position_deg', 'CW_Sec1_Pressure_psi', 'CW_Sec_1_SoilResistivity', 'CWC_R01_Sensor', 'EngSpeed', 'CAN_GenHVBusPower', 'R01_GWDF_EngRaw', 'R01_AppDownForce_EngRaw', 'R09_DepthSetpoint']].copy()
+Total_df_filtered.dropna()
+```
 
+During extraction from ASCII text to a mat file, I downsample all signals since some of them report at a high frequency. Then in the jupyter notebook I use dropna() to exclude all rows with a NaN value. This allows me to easily compare one signal to another without worrying if the time basis lines up. We'll observe eight relevant signals that can influence the closing wheel position:
+
+ 
+> **Section Pressure**
+> 
+> Measured air pressure at the valve stack which supplies air to the closing wheels.
+ 
+ 
+> **Soil Resistivity**
+> Estimated measure of soil penetration resistance I created using the summation of Y-axis forces across the row unit.
+
+> **Current Sensor**
+> Measured current availability for the closing wheel controller and valves. This is important because power availability is slim on a tractor with so many            > electronics. This can often be a pinch point for high-amperage control systems.
+ 
+> **Engine Speed**
+> We don't actually measure ground speed on the wheels and we don't have access to the GPS speed, but we only use one gear while planting so engine speed is synonymous > with ground speed at equilibrium. It doesn't tell actual ground speed, but we know as engine speed increases, so does ground speed. It is not a perfectly linear     > relationship, but the small variance from 5 to 9 miles per hour is negligible.
+ 
+> **EPG Power**
+> Another pinch point for power availability is the lag in electronic power generation. The EPG is suppose to generate 56V consistently, but can often lag with many   > control systems drawing from it.
+
+> **GWDF**
+> An acronym for gauge wheel downforce, a measurement of hydraulic pressure on 
 
 ## Header 2
 
