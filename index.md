@@ -19,21 +19,25 @@ Here is a list of relevant non-native sensors installed for this project:
 <img src="./assets/images/encoders.JPG" alt="encoders">
 <br>
 <br>
+
 ## Inertial Measurement Units (IMU) for acceleration data on row unit
 
 <img src="./assets/images/IMU.PNG" alt="imu">
 <br>
 <br>
+
 ## Valve stack pressure sensor for pneumatic pressure
 
 <img src="./assets/images/ValveStack.jpg" alt="ValveStack">
 <br>
 <br>
+
 ## And a LOT of monitors
 
 <img src="./assets/images/monitors.JPG" alt="monitors">
 <br>
 <br>
+
 All of these sensors work in conjunction to provide a clear image of planter dynamics and teach us how we can improve the planting process. When the data is logged, it is converted to a .mat file which can be imported into python for further analysis:
 
 ```python
