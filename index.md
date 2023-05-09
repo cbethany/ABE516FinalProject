@@ -14,34 +14,27 @@ Our control system utilizes a MicroAutoBox connected to a high-speed CAN bus to 
 
 Here is a list of relevant non-native sensors installed for this project:
 
-
-
-**Rotary encoders for cleaning and closing wheels**
+## Rotary encoders for cleaning and closing wheels
 
 <img src="./assets/images/encoders.JPG" alt="encoders">
-
-
-
-**Inertial Measurement Units (IMU) for acceleration data on row unit**
+<br>
+<br>
+## Inertial Measurement Units (IMU) for acceleration data on row unit
 
 <img src="./assets/images/IMU.PNG" alt="imu">
-
-
-
-**Valve stack pressure sensor for pneumatic pressure**
+<br>
+<br>
+## Valve stack pressure sensor for pneumatic pressure
 
 <img src="./assets/images/ValveStack.jpg" alt="ValveStack">
-
-
-
-**And a LOT of monitors**
+<br>
+<br>
+## And a LOT of monitors
 
 <img src="./assets/images/monitors.JPG" alt="monitors">
-
-
-All of these sensors work in conjunction to provide a clear image of planter dynamics and teach us how we can improve the planting process. 
-
-When the data is logged, it is converted to a .mat file which can be imported into python for further analysis:
+<br>
+<br>
+All of these sensors work in conjunction to provide a clear image of planter dynamics and teach us how we can improve the planting process. When the data is logged, it is converted to a .mat file which can be imported into python for further analysis:
 
 ```python
 data = mat73.loadmat(r"C:\Users\cbethany\Desktop\Fall Seeding\Analysis\Files\FieldLogs\Spring_2023_West80_20230413.mat")
@@ -64,33 +57,33 @@ Total_df_filtered.dropna()
 During extraction from ASCII text to a mat file, I downsample all signals since some of them report at a high frequency. Then in the jupyter notebook I use dropna() to exclude all rows with a NaN value. This allows me to easily compare one signal to another without worrying if the time basis lines up. We'll observe eight relevant signals that can influence the closing wheel position:
 
  
-> **Section Pressure**
-> 
-> Measured air pressure at the valve stack which supplies air to the closing wheels.
+> **Section Pressure** <br>
+> The measured air pressure at the valve stack which supplies air to the closing wheel pneumatic bags.
  
+> **Soil Resistivity** <br>
+> The estimated measure of soil penetration resistance I created using the summation of Y-axis forces across the row unit.
+
+> **Current Sensor** <br>
+> The measured current availability for the closing wheel controller and valves. This is important because power availability is slim on a tractor with so many electronics. This can often be a pinch point for high-amperage control systems.
  
-> **Soil Resistivity**
-> Estimated measure of soil penetration resistance I created using the summation of Y-axis forces across the row unit.
-
-> **Current Sensor**
-> Measured current availability for the closing wheel controller and valves. This is important because power availability is slim on a tractor with so many            > electronics. This can often be a pinch point for high-amperage control systems.
+> **Engine Speed** <br>
+> The engine speed measured in RPMs. We don't actually measure ground speed on the wheels and we don't have access to the GPS speed, but we only use one gear while planting so engine speed is synonymous with ground speed at equilibrium. It 
+> doesn't tell actual ground speed, but we know as engine speed increases, so does ground speed. It is not a perfectly linear relationship, but the small variance from 5 to 9 miles per hour is negligible.
  
-> **Engine Speed**
-> We don't actually measure ground speed on the wheels and we don't have access to the GPS speed, but we only use one gear while planting so engine speed is synonymous > with ground speed at equilibrium. It doesn't tell actual ground speed, but we know as engine speed increases, so does ground speed. It is not a perfectly linear     > relationship, but the small variance from 5 to 9 miles per hour is negligible.
- 
-> **EPG Power**
-> Another pinch point for power availability is the lag in electronic power generation. The EPG is suppose to generate 56V consistently, but can often lag with many   > control systems drawing from it.
+> **EPG Power** <br>
+> The total voltage from the Electronic Power Generator. Another pinch point for power availability is the lag in electronic power generation. The EPG is suppose to generate 56V consistently, but can often lag with many control systems 
+> drawing from it.
 
-> **GWDF**
-> An acronym for gauge wheel downforce, a measurement of hydraulic pressure on 
+> **GWDF** <br>
+> An acronym for gauge wheel downforce, a measurement of hydraulic pressure on the hinge that provides the main vector for pressing the cutting discs into the soil.
 
-## Header 2
+> **Applied Downforce** <br>
+> The calculated total downforce being exerted by the hydraulic cylinder. Not all of this pressure is being translated to the row unit as GWDF and settings such as speed, depth, cleaning, and closing pressures can change this ratio.
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+> **Depth Setpoint** <br>
+> The desired planting depth used by the row unit actuators to adjust the furrow.  
 
-### Header 3
+# Analysis
 
 ```js
 // Javascript code with syntax highlighting.
