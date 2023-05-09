@@ -14,25 +14,25 @@ Our control system utilizes a MicroAutoBox connected to a high-speed CAN bus to 
 
 Here is a list of relevant non-native sensors installed for this project:
 
-## Rotary encoders for cleaning and closing wheels
+### Rotary encoders for cleaning and closing wheels
 
 <img src="./assets/images/encoders.JPG" alt="encoders">
 <br>
 <br>
 
-## Inertial Measurement Units (IMU) for acceleration data on row unit
+### Inertial Measurement Units (IMU) for acceleration data on row unit
 
 <img src="./assets/images/IMU.PNG" alt="imu">
 <br>
 <br>
 
-## Valve stack pressure sensor for pneumatic pressure
+### Valve stack pressure sensor for pneumatic pressure
 
 <img src="./assets/images/ValveStack.jpg" alt="ValveStack">
 <br>
 <br>
 
-## And a LOT of monitors
+### And a LOT of monitors
 
 <img src="./assets/images/monitors.JPG" alt="monitors">
 <br>
