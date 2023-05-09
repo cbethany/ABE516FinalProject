@@ -124,7 +124,7 @@ sns.heatmap(corr, mask=mask)
 
 <img src="./assets/images/corr2.png" alt="corr">
 
-Immediately I notice a strong trend with soil resistivity and gauge wheel downforce. Let's explore this further with a regression.
+Immediately I notice a strong trend with gauge wheel downforce. This could be because the dampened movement of the row unit is reducing closing wheel movement, which is desirable. Let's explore this further with a regression.
 
 ```python
 sns.scatterplot(x=Total_df_filtered['CW_01_Position_deg'], y=Total_df_filtered['R01_GWDF_EngRaw'])
@@ -132,7 +132,7 @@ sns.scatterplot(x=Total_df_filtered['CW_01_Position_deg'], y=Total_df_filtered['
 
 <img src="./assets/images/regression.png" alt="regression">
 
-Interestingly, it looks like we should avoid downforces beyond 750N. You can see the standard deviation improves toward the top end, but that is likely in the overcompaction zone which will decrease closing performance and yield.
+Interestingly, it looks like we should avoid downforces beyond 750N. You can see the standard deviation improves toward the top end, but that is likely in the overcompaction zone which will decrease closing performance and yield. Let's consider what the best pressure might be for this field and force value.
 
 ```python
 sns.scatterplot(x=Total_df_filtered['CW_01_Position_deg'], y=Total_df_filtered['CW_Sec1_Pressure_psi'])
